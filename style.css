@@ -1454,3 +1454,1219 @@ p.demo_store {
   padding: 0 !important;
   margin: 0 !important;
 }
+
+/* ============================================================
+   FIX GENERAL PAGE LAYOUT
+============================================================ */
+.page-template-default .site-content,
+.page-template-default #primary,
+.page-template-default #main,
+.page-template-default .ast-container {
+  background: var(--dk-black) !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.page-template-default .entry-content {
+  background: var(--dk-black) !important;
+  padding: 56px 60px 80px !important;
+  max-width: 860px !important;
+  margin: 0 auto !important;
+}
+
+.page-template-default .entry-header {
+  background: var(--dk-black) !important;
+  padding: 56px 60px 32px !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  max-width: 100% !important;
+}
+
+.page-template-default .entry-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 40px !important;
+  font-weight: 400 !important;
+  color: var(--dk-cream) !important;
+}
+
+.page-template-default .entry-content > * {
+  display: block !important;
+  width: 100% !important;
+}
+
+.page-template-default .entry-content p {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  color: #888 !important;
+  line-height: 1.9 !important;
+  margin-bottom: 20px !important;
+}
+
+.page-template-default .entry-content h2 {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 22px !important;
+  color: var(--dk-cream) !important;
+  margin: 36px 0 14px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  font-weight: 400 !important;
+}
+
+.page-template-default .entry-content h3 {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--dk-amber) !important;
+  margin: 24px 0 10px !important;
+}
+
+.page-template-default .entry-content ul,
+.page-template-default .entry-content ol {
+  color: #888 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  line-height: 1.9 !important;
+  padding-left: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.page-template-default .entry-content li {
+  margin-bottom: 8px !important;
+  color: #888 !important;
+}
+
+.page-template-default .entry-content li::marker {
+  color: var(--dk-amber) !important;
+}
+
+.page-template-default .entry-content strong {
+  color: var(--dk-cream) !important;
+  font-weight: 600 !important;
+}
+
+.page-template-default .entry-content a {
+  color: var(--dk-amber) !important;
+}
+
+/* Table styling for policy pages */
+.page-template-default .entry-content table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 24px 0 !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+.page-template-default .entry-content table th {
+  background: var(--dk-card) !important;
+  color: var(--dk-cream) !important;
+  padding: 12px 16px !important;
+  text-align: left !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  border: 1px solid var(--dk-border) !important;
+}
+
+.page-template-default .entry-content table td {
+  padding: 12px 16px !important;
+  color: #888 !important;
+  border: 1px solid var(--dk-border) !important;
+  font-size: 13px !important;
+}
+
+/* ============================================================
+   CONTACT PAGE SPECIAL STYLING
+============================================================ */
+.page-id-contact .entry-content,
+body.page [class*="contact"] .entry-content {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 60px !important;
+  align-items: start !important;
+  max-width: 1100px !important;
+}
+
+/* Contact info box */
+.dk-contact-info {
+  background: var(--dk-card);
+  border: 1px solid var(--dk-border);
+  padding: 32px;
+}
+
+.dk-contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--dk-border);
+}
+
+.dk-contact-info-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.dk-contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--dk-amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.dk-contact-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dk-amber);
+  margin-bottom: 4px;
+}
+
+.dk-contact-value {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #888;
+  font-weight: 300;
+}
+
+/* WPForms dark styling */
+.wpforms-container {
+  margin-top: 0 !important;
+}
+
+.wpforms-form .wpforms-field-label {
+  color: var(--dk-cream) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 8px !important;
+}
+
+.wpforms-form input[type=text],
+.wpforms-form input[type=email],
+.wpforms-form input[type=tel],
+.wpforms-form textarea {
+  background: var(--dk-card) !important;
+  color: var(--dk-cream) !important;
+  border: 1px solid var(--dk-border) !important;
+  border-radius: 0 !important;
+  padding: 12px 14px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  width: 100% !important;
+}
+
+.wpforms-form input:focus,
+.wpforms-form textarea:focus {
+  border-color: var(--dk-amber) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.wpforms-form .wpforms-submit-container {
+  margin-top: 8px !important;
+}
+
+.wpforms-form button[type=submit] {
+  background: var(--dk-amber) !important;
+  color: var(--dk-black) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  padding: 14px 28px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  cursor: pointer !important;
+}
+
+.wpforms-form button[type=submit]:hover {
+  background: var(--dk-amber2) !important;
+}
+
+/* Remove WPForms raw CSS output */
+.wpforms-container-full .wpforms-form {
+  display: block !important;
+}
+
+/* ============================================================
+   REMOVE ASTRA FOOTER CREDITS
+============================================================ */
+.ast-footer-copyright,
+.ast-small-footer-section,
+#colophon .ast-small-footer,
+.ast-footer-overlay {
+  display: none !important;
+}
+
+/* ============================================================
+   BREADCRUMBS — DARK THEME
+============================================================ */
+.ast-breadcrumbs-wrapper,
+.breadcrumbs {
+  background: var(--dk-black) !important;
+  padding: 12px 60px !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+.ast-breadcrumbs-wrapper span,
+.ast-breadcrumbs-wrapper a {
+  color: #444 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+}
+
+.ast-breadcrumbs-wrapper a:hover {
+  color: var(--dk-amber) !important;
+}
+
+/* ============================================================
+   SHOP PAGE — NO PRODUCTS MESSAGE
+============================================================ */
+.woocommerce-info {
+  background: var(--dk-card) !important;
+  border-top-color: var(--dk-amber) !important;
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+
+/* ============================================================
+   CART PAGE
+============================================================ */
+.woocommerce-cart .entry-header,
+.woocommerce-cart .page-header {
+  padding: 40px 60px 24px !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+.woocommerce-cart .entry-title,
+.woocommerce-cart .page-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 36px !important;
+  color: var(--dk-cream) !important;
+  font-weight: 400 !important;
+}
+
+.woocommerce-cart .woocommerce {
+  padding: 40px 60px !important;
+}
+
+/* Cart table */
+.woocommerce table.shop_table {
+  border: 1px solid var(--dk-border) !important;
+  border-radius: 0 !important;
+}
+
+.woocommerce table.shop_table thead th {
+  background: var(--dk-card) !important;
+  color: var(--dk-amber) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  padding: 14px 16px !important;
+  border: none !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+.woocommerce table.shop_table tbody td {
+  background: var(--dk-black) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  padding: 20px 16px !important;
+  vertical-align: middle !important;
+}
+
+.woocommerce table.shop_table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Product name in cart */
+.woocommerce table.cart td.product-name a {
+  color: var(--dk-cream) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+.woocommerce table.cart td.product-name a:hover {
+  color: var(--dk-amber) !important;
+}
+
+/* Product price in cart */
+.woocommerce table.cart td.product-price,
+.woocommerce table.cart td.product-subtotal {
+  color: var(--dk-cream) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 16px !important;
+}
+
+/* Quantity box in cart */
+.woocommerce table.cart td.product-quantity .qty {
+  background: var(--dk-card) !important;
+  color: var(--dk-cream) !important;
+  border: 1px solid var(--dk-border) !important;
+  border-radius: 0 !important;
+  padding: 8px 12px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  width: 70px !important;
+  text-align: center !important;
+}
+
+/* Remove button */
+.woocommerce table.cart td.product-remove a {
+  color: #444 !important;
+  font-size: 18px !important;
+  transition: color 0.2s !important;
+}
+
+.woocommerce table.cart td.product-remove a:hover {
+  color: #E2136E !important;
+}
+
+/* Cart thumbnail */
+.woocommerce table.cart td.product-thumbnail img {
+  width: 80px !important;
+  height: 80px !important;
+  object-fit: cover !important;
+  border: 1px solid var(--dk-border) !important;
+}
+
+/* Update cart button */
+.woocommerce table.cart td.actions .button {
+  background: transparent !important;
+  color: var(--dk-amber) !important;
+  border: 1px solid var(--dk-amber) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.12em !important;
+}
+
+.woocommerce table.cart td.actions .button:hover {
+  background: var(--dk-amber) !important;
+  color: var(--dk-black) !important;
+}
+
+/* Coupon input */
+.woocommerce table.cart td.actions .coupon input {
+  background: var(--dk-card) !important;
+  color: var(--dk-cream) !important;
+  border: 1px solid var(--dk-border) !important;
+  border-radius: 0 !important;
+  padding: 10px 14px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
+}
+
+/* Cart totals box */
+.woocommerce-cart-form + .cart-collaterals {
+  margin-top: 32px !important;
+}
+
+.woocommerce .cart-collaterals .cart_totals {
+  background: var(--dk-card) !important;
+  border: 1px solid var(--dk-border) !important;
+  padding: 28px !important;
+  width: 100% !important;
+  float: none !important;
+}
+
+.woocommerce .cart_totals h2 {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: var(--dk-amber) !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 16px !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+.woocommerce .cart_totals table {
+  border: none !important;
+  width: 100% !important;
+}
+
+.woocommerce .cart_totals table th {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  padding: 14px 0 !important;
+  width: 40% !important;
+}
+
+.woocommerce .cart_totals table td {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  color: var(--dk-cream) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 16px !important;
+  padding: 14px 0 !important;
+  text-align: right !important;
+}
+
+.woocommerce .cart_totals table tr.order-total th,
+.woocommerce .cart_totals table tr.order-total td {
+  border-bottom: none !important;
+  padding-top: 18px !important;
+}
+
+.woocommerce .cart_totals table tr.order-total td {
+  font-size: 22px !important;
+  color: var(--dk-amber) !important;
+}
+
+/* Proceed to checkout button */
+.woocommerce .cart_totals .wc-proceed-to-checkout a.checkout-button {
+  background: var(--dk-amber) !important;
+  color: var(--dk-black) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  padding: 16px 28px !important;
+  border-radius: 0 !important;
+  display: block !important;
+  text-align: center !important;
+  margin-top: 20px !important;
+  transition: background 0.2s !important;
+}
+
+.woocommerce .cart_totals .wc-proceed-to-checkout a.checkout-button:hover {
+  background: var(--dk-amber2) !important;
+  color: var(--dk-black) !important;
+}
+
+/* ============================================================
+   CHECKOUT PAGE
+============================================================ */
+.woocommerce-checkout .entry-title,
+.woocommerce-checkout .page-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 36px !important;
+  color: var(--dk-cream) !important;
+  font-weight: 400 !important;
+  padding: 40px 60px 24px !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+.woocommerce-checkout .woocommerce {
+  padding: 40px 60px !important;
+  display: grid !important;
+  grid-template-columns: 1.2fr 0.8fr !important;
+  gap: 48px !important;
+  align-items: start !important;
+}
+
+/* Checkout headings */
+.woocommerce-checkout h3 {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: var(--dk-amber) !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 14px !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+/* Checkout form inputs */
+.woocommerce-checkout .input-text,
+.woocommerce-checkout input[type=text],
+.woocommerce-checkout input[type=email],
+.woocommerce-checkout input[type=tel],
+.woocommerce-checkout input[type=password],
+.woocommerce-checkout textarea,
+.woocommerce-checkout select {
+  background: var(--dk-card) !important;
+  color: var(--dk-cream) !important;
+  border: 1px solid var(--dk-border) !important;
+  border-radius: 0 !important;
+  padding: 12px 14px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  width: 100% !important;
+  transition: border-color 0.2s !important;
+}
+
+.woocommerce-checkout .input-text:focus,
+.woocommerce-checkout input:focus,
+.woocommerce-checkout select:focus {
+  border-color: var(--dk-amber) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Checkout labels */
+.woocommerce-checkout label {
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  margin-bottom: 6px !important;
+  display: block !important;
+}
+
+/* Order review box */
+#order_review_heading {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: var(--dk-amber) !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 14px !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+#order_review {
+  background: var(--dk-card) !important;
+  border: 1px solid var(--dk-border) !important;
+  padding: 24px !important;
+}
+
+.woocommerce-checkout-review-order-table {
+  width: 100% !important;
+}
+
+.woocommerce-checkout-review-order-table th {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  color: var(--dk-amber) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  padding: 10px 0 !important;
+}
+
+.woocommerce-checkout-review-order-table td {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  padding: 12px 0 !important;
+}
+
+.woocommerce-checkout-review-order-table .order-total td {
+  color: var(--dk-amber) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 20px !important;
+  border-bottom: none !important;
+}
+
+.woocommerce-checkout-review-order-table .order-total th {
+  color: var(--dk-cream) !important;
+  border-bottom: none !important;
+}
+
+/* Payment methods */
+.woocommerce-checkout #payment {
+  background: var(--dk-card) !important;
+  border: 1px solid var(--dk-border) !important;
+  border-radius: 0 !important;
+  margin-top: 16px !important;
+}
+
+.woocommerce-checkout #payment ul.payment_methods {
+  border-bottom: 1px solid var(--dk-border) !important;
+  padding: 16px !important;
+}
+
+.woocommerce-checkout #payment ul.payment_methods li label {
+  color: var(--dk-cream) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.woocommerce-checkout #payment .payment_box {
+  background: var(--dk-mid) !important;
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
+}
+
+.woocommerce-checkout #payment div.place-order {
+  padding: 16px !important;
+}
+
+/* Place order button */
+.woocommerce-checkout #payment #place_order {
+  background: var(--dk-amber) !important;
+  color: var(--dk-black) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  padding: 16px 28px !important;
+  border-radius: 0 !important;
+  width: 100% !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
+}
+
+.woocommerce-checkout #payment #place_order:hover {
+  background: var(--dk-amber2) !important;
+}
+
+/* ============================================================
+   ORDER CONFIRMATION PAGE
+============================================================ */
+.woocommerce-order-received .woocommerce {
+  padding: 48px 60px !important;
+}
+
+.woocommerce-order-received h2 {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 24px !important;
+  color: var(--dk-cream) !important;
+  margin-bottom: 16px !important;
+}
+
+.woocommerce-order-received p {
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+.woocommerce-notice--success,
+.woocommerce-message {
+  background: var(--dk-card) !important;
+  border-top: 3px solid var(--dk-amber) !important;
+  color: var(--dk-cream) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  border-radius: 0 !important;
+}
+
+.woocommerce-thankyou-order-details {
+  background: var(--dk-card) !important;
+  border: 1px solid var(--dk-border) !important;
+  padding: 24px !important;
+  list-style: none !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 16px !important;
+  margin-bottom: 32px !important;
+}
+
+.woocommerce-thankyou-order-details li {
+  text-align: center !important;
+  padding: 0 !important;
+}
+
+.woocommerce-thankyou-order-details li strong {
+  display: block !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 20px !important;
+  color: var(--dk-amber) !important;
+  margin-top: 4px !important;
+}
+
+/* ============================================================
+   MY ACCOUNT PAGE
+============================================================ */
+.woocommerce-account .woocommerce {
+  padding: 48px 60px !important;
+  display: grid !important;
+  grid-template-columns: 220px 1fr !important;
+  gap: 40px !important;
+}
+
+.woocommerce-MyAccount-navigation ul {
+  list-style: none !important;
+  padding: 0 !important;
+  border: 1px solid var(--dk-border) !important;
+}
+
+.woocommerce-MyAccount-navigation ul li a {
+  display: block !important;
+  padding: 12px 16px !important;
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  transition: all 0.2s !important;
+}
+
+.woocommerce-MyAccount-navigation ul li a:hover,
+.woocommerce-MyAccount-navigation ul li.is-active a {
+  background: var(--dk-card) !important;
+  color: var(--dk-amber) !important;
+  padding-left: 20px !important;
+}
+
+.woocommerce-MyAccount-content {
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+.woocommerce-MyAccount-content p {
+  font-size: 13px !important;
+  line-height: 1.8 !important;
+  margin-bottom: 16px !important;
+}
+
+/* ============================================================
+   BLOCK CHECKOUT OVERRIDE
+============================================================ */
+
+/* Main checkout wrapper */
+.wp-block-woocommerce-checkout,
+.wc-block-checkout {
+  background: var(--dk-black) !important;
+  padding: 40px 60px !important;
+  color: var(--dk-text) !important;
+}
+
+/* Checkout headings */
+.wp-block-woocommerce-checkout h2,
+.wc-block-checkout h2,
+.wc-block-components-title {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: var(--dk-amber) !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 14px !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+/* Page title */
+.woocommerce-checkout .entry-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 36px !important;
+  color: var(--dk-cream) !important;
+  font-weight: 400 !important;
+  padding: 40px 60px 24px !important;
+}
+
+/* All input fields */
+.wc-block-components-text-input input,
+.wc-block-components-select select,
+.wc-block-components-country-input input,
+.wc-block-components-state-input input,
+.wc-block-checkout input[type=text],
+.wc-block-checkout input[type=email],
+.wc-block-checkout input[type=tel],
+.wc-block-checkout select,
+.wc-block-checkout textarea {
+  background: var(--dk-card) !important;
+  color: var(--dk-cream) !important;
+  border: 1px solid var(--dk-border) !important;
+  border-radius: 0 !important;
+  padding: 12px 14px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+}
+
+.wc-block-components-text-input input:focus,
+.wc-block-checkout input:focus,
+.wc-block-checkout select:focus {
+  border-color: var(--dk-amber) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Labels */
+.wc-block-components-text-input label,
+.wc-block-components-select label,
+.wc-block-checkout label {
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+}
+
+/* Order summary sidebar */
+.wc-block-checkout__sidebar,
+.wp-block-woocommerce-checkout-order-summary-block {
+  background: var(--dk-card) !important;
+  border: 1px solid var(--dk-border) !important;
+  padding: 24px !important;
+}
+
+.wc-block-order-summary-item__description,
+.wc-block-components-order-summary-item__description {
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+.wc-block-components-order-summary-item__individual-price,
+.wc-block-components-order-summary-item__total-price {
+  color: var(--dk-cream) !important;
+  font-family: 'Playfair Display', serif !important;
+}
+
+/* Totals */
+.wc-block-components-totals-item {
+  border-bottom: 1px solid var(--dk-border) !important;
+  padding: 12px 0 !important;
+}
+
+.wc-block-components-totals-item__label {
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+}
+
+.wc-block-components-totals-item__value {
+  color: var(--dk-cream) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 16px !important;
+}
+
+/* Total row */
+.wc-block-components-totals-footer-item .wc-block-components-totals-item__label {
+  color: var(--dk-cream) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+.wc-block-components-totals-footer-item .wc-block-components-totals-item__value {
+  color: var(--dk-amber) !important;
+  font-size: 22px !important;
+}
+
+/* Payment options */
+.wc-block-components-radio-control__option {
+  background: var(--dk-card) !important;
+  border: 1px solid var(--dk-border) !important;
+  padding: 14px !important;
+  margin-bottom: 8px !important;
+}
+
+.wc-block-components-radio-control__option:hover {
+  border-color: var(--dk-amber) !important;
+}
+
+.wc-block-components-radio-control__label {
+  color: var(--dk-cream) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+}
+
+.wc-block-components-radio-control__description {
+  color: var(--dk-text-dim) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
+}
+
+/* Place Order button */
+.wc-block-components-checkout-place-order-button,
+.wc-block-checkout__place-order button {
+  background: var(--dk-amber) !important;
+  color: var(--dk-black) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  padding: 16px 28px !important;
+  border-radius: 0 !important;
+  width: 100% !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
+}
+
+.wc-block-components-checkout-place-order-button:hover {
+  background: var(--dk-amber2) !important;
+}
+
+/* Return to cart link */
+.wc-block-checkout__return-to-cart-link {
+  color: var(--dk-amber) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
+}
+
+/* Coupon section */
+.wc-block-components-totals-coupon__input input {
+  background: var(--dk-card) !important;
+  color: var(--dk-cream) !important;
+  border: 1px solid var(--dk-border) !important;
+  border-radius: 0 !important;
+  padding: 10px 14px !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+.wc-block-components-totals-coupon__button {
+  background: transparent !important;
+  color: var(--dk-amber) !important;
+  border: 1px solid var(--dk-amber) !important;
+  border-radius: 0 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+}
+
+/* Shipping options */
+.wc-block-components-shipping-rates-control__package {
+  background: var(--dk-card) !important;
+  border: 1px solid var(--dk-border) !important;
+  padding: 16px !important;
+}
+
+.wc-block-components-radio-control-accordion-option {
+  border-bottom: 1px solid var(--dk-border) !important;
+  padding: 12px 0 !important;
+}
+
+.wc-block-components-radio-control-accordion-option__label {
+  color: var(--dk-cream) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* Privacy policy text */
+.wc-block-checkout__privacy-policy {
+  color: #444 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+}
+
+.wc-block-checkout__privacy-policy a {
+  color: var(--dk-amber) !important;
+}
+
+/* Product image in order summary */
+.wc-block-order-summary-item__image img {
+  border: 1px solid var(--dk-border) !important;
+}
+
+/* Spinner/loader color */
+.wc-block-components-spinner {
+  border-color: var(--dk-amber) transparent transparent !important;
+}
+
+/* Notice/alert messages */
+.wc-block-components-notice-banner {
+  background: var(--dk-card) !important;
+  border-left: 3px solid var(--dk-amber) !important;
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  border-radius: 0 !important;
+}
+
+/* Step indicator text */
+.wc-block-checkout__add-note .wc-block-checkout__add-note-label {
+  color: var(--dk-amber) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
+}
+
+.wc-block-checkout__add-note textarea {
+  background: var(--dk-card) !important;
+  color: var(--dk-cream) !important;
+  border: 1px solid var(--dk-border) !important;
+  border-radius: 0 !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* Checkbox styling */
+.wc-block-components-checkbox input[type=checkbox]:checked + span::before {
+  background: var(--dk-amber) !important;
+  border-color: var(--dk-amber) !important;
+}
+
+.wc-block-components-checkbox__label {
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
+}
+
+/* ============================================================
+   BLOCK CART PAGE
+============================================================ */
+.wp-block-woocommerce-cart,
+.wc-block-cart {
+  background: var(--dk-black) !important;
+  padding: 40px 60px !important;
+}
+
+.wc-block-cart-items__header {
+  border-bottom: 1px solid var(--dk-border) !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 0 !important;
+}
+
+.wc-block-cart-items__header-title {
+  color: var(--dk-amber) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+}
+
+.wc-block-cart-item {
+  border-bottom: 1px solid var(--dk-border) !important;
+  padding: 20px 0 !important;
+}
+
+.wc-block-cart-item__image img {
+  border: 1px solid var(--dk-border) !important;
+}
+
+.wc-block-cart-item__product-name {
+  color: var(--dk-cream) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+.wc-block-cart-item__product-name a {
+  color: var(--dk-cream) !important;
+}
+
+.wc-block-cart-item__product-name a:hover {
+  color: var(--dk-amber) !important;
+}
+
+.wc-block-cart-item__prices .wc-block-components-product-price {
+  color: var(--dk-cream) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 16px !important;
+}
+
+/* Quantity stepper in cart */
+.wc-block-components-quantity-selector {
+  background: var(--dk-card) !important;
+  border: 1px solid var(--dk-border) !important;
+  border-radius: 0 !important;
+}
+
+.wc-block-components-quantity-selector__value {
+  color: var(--dk-cream) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  background: transparent !important;
+}
+
+.wc-block-components-quantity-selector__button {
+  color: var(--dk-text) !important;
+  background: transparent !important;
+}
+
+.wc-block-components-quantity-selector__button:hover {
+  color: var(--dk-amber) !important;
+}
+
+/* Remove item button */
+.wc-block-cart-item__remove-link {
+  color: #444 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  transition: color 0.2s !important;
+}
+
+.wc-block-cart-item__remove-link:hover {
+  color: #E2136E !important;
+}
+
+/* Cart totals sidebar */
+.wc-block-cart__payment-options {
+  background: var(--dk-card) !important;
+  border: 1px solid var(--dk-border) !important;
+  padding: 24px !important;
+}
+
+/* Proceed to checkout button in cart */
+.wc-block-cart__submit-container .wc-block-cart__submit-button {
+  background: var(--dk-amber) !important;
+  color: var(--dk-black) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  padding: 16px 28px !important;
+  border-radius: 0 !important;
+  width: 100% !important;
+  border: none !important;
+  transition: background 0.2s !important;
+}
+
+.wc-block-cart__submit-container .wc-block-cart__submit-button:hover {
+  background: var(--dk-amber2) !important;
+}
+
+/* ============================================================
+   CHECKOUT SMALL FIXES
+============================================================ */
+
+/* Section headings — reduce letter spacing slightly */
+.wc-block-components-title,
+.wc-block-checkout h2 {
+  letter-spacing: 0.1em !important;
+  font-size: 10px !important;
+}
+
+/* Order summary product title color fix */
+.wc-block-components-order-summary-item__individual-prices,
+.wc-block-order-summary-item__individual-prices {
+  color: var(--dk-amber) !important;
+}
+
+/* Product image in order summary — fix tiny thumbnail */
+.wc-block-order-summary-item__image,
+.wc-block-components-order-summary-item__image {
+  display: none !important;
+}
+
+/* Total label font */
+.wc-block-components-totals-footer-item__label {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--dk-cream) !important;
+}
+
+/* COD radio button fix */
+.wc-block-components-radio-control__input:checked {
+  accent-color: var(--dk-amber) !important;
+}
+
+/* Checkout page max width */
+.wp-block-woocommerce-checkout {
+  max-width: 100% !important;
+}

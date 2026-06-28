@@ -32,3 +32,11 @@ add_filter('astra_breadcrumbs_enabled', function($enabled) {
     if (is_shop() || is_front_page()) return false;
     return $enabled;
 });
+
+// Remove Astra footer credits
+add_filter('astra_footer_credits', function() {
+    return '';
+});
+
+// Remove WordPress generator meta tag
+remove_action('wp_head', 'wp_generator');
