@@ -222,20 +222,22 @@ p.demo_store {
    HERO SECTION
 ============================================================ */
 .dk-hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 500px;
-  border-bottom: 1px solid var(--dk-border);
+  display: grid !important;
+  grid-template-columns: 55% 45% !important;
+  min-height: 560px !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  overflow: hidden !important;
 }
 
 .dk-hero-left {
-  background: var(--dk-black);
-  padding: 72px 64px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-right: 1px solid var(--dk-border);
-  position: relative;
+  background: var(--dk-black) !important;
+  padding: 80px 64px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  border-right: 1px solid var(--dk-border) !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
 
 /* Corner decorations */
@@ -372,13 +374,13 @@ p.demo_store {
 
 /* Hero right image area */
 .dk-hero-right {
-  background: #0F0F0F;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  min-height: 500px;
+  background: #0F0F0F !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  min-height: 560px !important;
 }
 
 /* Grid pattern background */
@@ -394,22 +396,21 @@ p.demo_store {
 }
 
 .dk-hero-img-frame {
-  width: 240px;
-  height: 300px;
-  background: var(--dk-mid);
-  border: 1px solid var(--dk-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  background: transparent !important;
+  display: block !important;
 }
 
 .dk-hero-img-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
 }
 
 /* Price card floating */
@@ -474,6 +475,27 @@ p.demo_store {
   color: var(--dk-black);
   text-transform: uppercase;
   line-height: 1.4;
+}
+.dk-hero-right::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(to right, rgba(10,10,10,0.4), transparent) !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.dk-hero-price-card {
+  z-index: 2 !important;
+}
+
+.dk-hero-badge {
+  z-index: 2 !important;
+}
+
+/* Grid pattern — remove it, we have a photo now */
+.dk-hero-right::before {
+  display: none !important;
 }
 
 /* ============================================================
@@ -542,10 +564,11 @@ p.demo_store {
    CATEGORY GRID
 ============================================================ */
 .dk-cat-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 8px;
-  height: 240px;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-rows: repeat(2, 200px) !important;
+  gap: 8px !important;
+  height: auto !important;
 }
 
 .dk-cat-card {
@@ -2669,4 +2692,2288 @@ body.page [class*="contact"] .entry-content {
 /* Checkout page max width */
 .wp-block-woocommerce-checkout {
   max-width: 100% !important;
+}
+
+
+/* ============================================================
+   HOMEPAGE POLISH FIXES
+============================================================ */
+
+/* Hero — bigger and more impactful */
+.dk-hero {
+  min-height: 560px !important;
+}
+
+.dk-hero-left {
+  padding: 80px 72px !important;
+}
+
+.dk-hero-bn {
+  font-size: 72px !important;
+  margin-bottom: 12px !important;
+}
+
+.dk-hero-en {
+  font-size: 36px !important;
+}
+
+.dk-hero-sub {
+  font-size: 15px !important;
+  max-width: 400px !important;
+}
+
+/* Hero right — make image fill properly */
+.dk-hero-img-frame {
+  width: 280px !important;
+  height: 360px !important;
+}
+
+.dk-hero-img-frame img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+}
+
+/* Nav — center logo properly and fix size */
+#masthead .site-title,
+.ast-site-identity {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.ast-site-identity .site-title a {
+  font-size: 18px !important;
+  letter-spacing: 0.14em !important;
+}
+
+/* Category grid — fix image display */
+.dk-cat-grid {
+  height: 260px !important;
+}
+
+.dk-cat-img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  transition: transform 0.4s ease !important;
+}
+
+.dk-cat-card:hover .dk-cat-img {
+  transform: scale(1.05) !important;
+}
+
+/* Category overlay — stronger gradient */
+.dk-cat-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(to top, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.1) 60%) !important;
+  z-index: 1 !important;
+}
+
+.dk-cat-label {
+  z-index: 2 !important;
+  position: relative !important;
+}
+
+/* Product cards — fix image sizing */
+.dk-product-img {
+  height: 260px !important;
+}
+
+.dk-product-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+}
+
+/* Product name — slightly bigger */
+.dk-product-name {
+  font-size: 13px !important;
+  margin-bottom: 6px !important;
+  color: #CCC !important;
+}
+
+/* Section spacing — more breathing room */
+.dk-section,
+.dk-section-alt {
+  padding: 72px 60px !important;
+}
+
+/* Story strip — bigger numbers */
+.dk-stat-num {
+  font-size: 40px !important;
+}
+
+/* Reviews — slightly bigger text */
+.dk-review-text {
+  font-size: 14px !important;
+  color: #999 !important;
+}
+
+/* Announcement bar — slightly bigger */
+.dk-announcement-bar {
+  font-size: 12px !important;
+  padding: 10px 20px !important;
+  letter-spacing: 0.12em !important;
+}
+
+/* Footer — fix description text visibility */
+.dk-footer-desc {
+  color: #555 !important;
+}
+
+/* Footer links visibility */
+.dk-footer-links li,
+.dk-footer-links li a {
+  color: #444 !important;
+}
+
+.dk-footer-links li:hover,
+.dk-footer-links li a:hover {
+  color: var(--dk-cream) !important;
+}
+
+/* bKash bar — more padding */
+.dk-bkash-bar {
+  padding: 36px 60px !important;
+}
+
+.dk-bkash-title {
+  font-size: 26px !important;
+}
+
+/* Packaging section icons */
+.dk-pack-icon {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+/* Remove Astra page title on homepage */
+.home .entry-header,
+.home .page-header,
+.front-page .entry-header {
+  display: none !important;
+}
+
+/* Remove default WordPress admin bar spacing issues */
+.home #wpadminbar + #page {
+  margin-top: 0 !important;
+}
+
+/* Ticker — slightly bigger and more visible */
+.dk-ticker {
+  padding: 13px 0 !important;
+}
+
+.dk-ticker-inner {
+  font-size: 11px !important;
+  color: #555 !important;
+}
+
+/* Product view button */
+.dk-btn-primary[style*="margin-top"] {
+  display: block !important;
+  width: calc(100% - 0px) !important;
+  text-align: center !important;
+  font-size: 10px !important;
+  padding: 10px 16px !important;
+  margin-top: 10px !important;
+}
+
+/* ============================================================
+   NAV LOGO FIX
+============================================================ */
+#masthead {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.ast-site-identity {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+}
+
+.ast-site-identity .site-title {
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ast-site-identity .site-title a {
+  white-space: nowrap !important;
+  display: inline-block !important;
+  font-size: 15px !important;
+  letter-spacing: 0.14em !important;
+  color: var(--dk-cream) !important;
+}
+
+.ast-main-header-bar .ast-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  position: relative !important;
+  padding: 0 48px !important;
+}
+
+/* Hide Astra's default site description/tagline in header */
+.ast-site-identity .site-description {
+  display: none !important;
+}
+
+/* ============================================================
+   FINAL POLISH
+============================================================ */
+
+/* Category grid — 3 columns always */
+.dk-cat-grid {
+  grid-template-columns: 2fr 1fr 1fr !important;
+  height: 280px !important;
+}
+
+/* Product section background */
+.dk-section-alt {
+  background: #0C0C0C !important;
+  border-top: 1px solid var(--dk-border) !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+/* Product cards — taller images */
+.dk-product-img {
+  height: 280px !important;
+}
+
+/* View product button — full width */
+.dk-product-info .dk-btn-primary {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  margin-top: 12px !important;
+  font-size: 10px !important;
+  padding: 11px 16px !important;
+}
+
+/* Reviews section background */
+.dk-reviews-section,
+.dk-section:has(.dk-reviews-grid) {
+  background: var(--dk-dark) !important;
+  border-top: 1px solid var(--dk-border) !important;
+}
+
+/* Packaging cards background */
+.dk-pack-card {
+  background: var(--dk-black) !important;
+}
+
+/* Footer — top border visible */
+.dk-footer {
+  border-top: 1px solid var(--dk-border) !important;
+}
+
+/* Section eyebrow text — slightly larger */
+.dk-section-eyebrow {
+  font-size: 11px !important;
+}
+
+/* Hero eyebrow */
+.dk-eyebrow-text {
+  font-size: 11px !important;
+}
+
+/* Announcement bar — amber on dark */
+.dk-announcement-bar {
+  background: var(--dk-amber) !important;
+  color: var(--dk-black) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+  padding: 10px !important;
+}
+
+
+/* ============================================================
+   NEW LAYOUT — LOGO BAR TOP
+============================================================ */
+
+/* Hide Astra's default header logo/title */
+.ast-site-identity .site-title,
+.ast-site-identity .custom-logo-link {
+  display: none !important;
+}
+
+/* Logo bar — full width centered */
+.dk-logo-bar {
+  background: var(--dk-black) !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  padding: 18px 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.dk-logo-link {
+  text-decoration: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+.dk-logo-img {
+  height: 56px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+.dk-logo-text-wrap {
+  text-align: center !important;
+}
+
+.dk-logo-main {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--dk-cream) !important;
+  line-height: 1.2 !important;
+}
+
+.dk-logo-bn {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: var(--dk-amber) !important;
+  line-height: 1.2 !important;
+}
+
+/* Nav bar — below logo, full width */
+#masthead,
+.ast-primary-header-bar {
+  background: var(--dk-dark) !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  border-top: none !important;
+  padding: 0 48px !important;
+  min-height: 52px !important;
+}
+
+/* Center nav links */
+.ast-main-header-bar .ast-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 48px !important;
+  gap: 40px !important;
+}
+
+/* Hide site identity in nav since we have logo bar */
+.ast-site-identity {
+  display: none !important;
+}
+
+/* Nav links styling */
+.main-navigation a,
+.ast-main-navigation a,
+#ast-hf-menu-1 a {
+  color: #888 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  padding: 16px 4px !important;
+  transition: color 0.2s !important;
+}
+
+.main-navigation a:hover,
+#ast-hf-menu-1 a:hover {
+  color: var(--dk-amber) !important;
+}
+
+/* Cart icon in nav */
+.ast-header-woo-cart,
+.ast-addon-cart-wrap {
+  margin-left: auto !important;
+}
+
+/* ============================================================
+   HERO SLIDER
+============================================================ */
+.dk-hero-right {
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 560px !important;
+}
+
+.dk-hero-slider {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.dk-slide {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0 !important;
+  transition: opacity 1s ease-in-out !important;
+}
+
+.dk-slide img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+}
+
+/* Active slide */
+.dk-slide.active {
+  opacity: 1 !important;
+}
+
+/* Slider dots */
+.dk-slider-dots {
+  position: absolute !important;
+  bottom: 80px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  gap: 8px !important;
+  z-index: 3 !important;
+}
+
+.dk-slider-dot {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,0.3) !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.dk-slider-dot.active {
+  background: var(--dk-amber) !important;
+}
+
+/* Price card z-index */
+.dk-hero-price-card {
+  z-index: 4 !important;
+}
+
+.dk-hero-badge {
+  z-index: 4 !important;
+}
+
+/* Dark overlay on slider */
+.dk-hero-right::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    to right,
+    rgba(10,10,10,0.5) 0%,
+    rgba(10,10,10,0.1) 50%,
+    transparent 100%
+  ) !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+/* Remove grid pattern */
+.dk-hero-right::before {
+  display: none !important;
+}
+
+
+/* ============================================================
+   HERO PRICE CARD UPDATE
+============================================================ */
+/* ============================================================
+   HERO PRICE CARD — FIXED SIZE
+============================================================ */
+.dk-hero-price-card {
+  position: absolute !important;
+  bottom: 32px !important;
+  right: 32px !important;
+  z-index: 4 !important;
+  background: var(--dk-black) !important;
+  border: 1px solid var(--dk-amber) !important;
+  padding: 18px 22px !important;
+  width: 180px !important;
+  min-width: 180px !important;
+  max-width: 180px !important;
+  min-height: 110px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+/* Product name — fixed height, truncated if too long */
+.dk-price-label {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  color: #888 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  margin-bottom: 6px !important;
+  height: 32px !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  line-height: 1.4 !important;
+}
+
+/* Price — always same size */
+.dk-price-val {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 26px !important;
+  color: var(--dk-cream) !important;
+  line-height: 1 !important;
+  margin-bottom: 12px !important;
+  white-space: nowrap !important;
+}
+
+/* View button */
+.dk-price-btn {
+  display: block !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--dk-black) !important;
+  background: var(--dk-amber) !important;
+  padding: 8px 0 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: background 0.2s !important;
+  width: 100% !important;
+}
+
+.dk-price-btn:hover {
+  background: var(--dk-amber2) !important;
+  color: var(--dk-black) !important;
+}
+
+/* No image fallback */
+.dk-slide-no-img {
+  width: 100% !important;
+  height: 100% !important;
+  background: var(--dk-mid) !important;
+}
+
+
+/* ============================================================
+   NAVBAR CLEANUP & FULL WIDTH OVERRIDES
+============================================================ */
+/* Remove Astra default boxed column backgrounds & borders */
+.ast-builder-grid-row-container,
+.ast-builder-grid-row,
+.ast-builder-grid-row-cell,
+.ast-grid-common-col,
+.ast-primary-header-bar,
+.ast-primary-header-bar .site-navigation,
+.ast-main-header-bar,
+.ast-header-break-point .main-header-bar {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Force the main menu items to inherit a transparent background */
+.main-navigation,
+.main-navigation ul,
+.main-header-menu,
+.main-header-menu * {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Align and space the container elements across the full navbar width */
+.ast-primary-header-bar .ast-container {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* ============================================================
+   HERO SLIDER PORTRAIT FRAME (PREVENT STRETCHING)
+============================================================ */
+/* Center the slide wrapper horizontally and vertically */
+.dk-slide {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Contain the slider image within a elegant portrait frame */
+.dk-slide img {
+  width: 100% !important;
+  max-width: 380px !important;  /* Sets a fixed maximum width for the portrait frame */
+  height: 480px !important;     /* Sets a fixed height to crop the kurti elegantly */
+  object-fit: cover !important;  /* Crops the image smoothly within the aspect ratio */
+  border: 1px solid var(--dk-border) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5) !important; /* Soft luxury drop shadow */
+}
+
+/* Align the round badge to sit relative to the centered 380px frame */
+.dk-hero-badge {
+  top: 55px !important;
+  left: calc(50% - 190px - 34px) !important; /* Aligns badge center precisely over the image's left border */
+  z-index: 5 !important;
+}
+
+/* Align the price card to sit relative to the bottom right of the 380px frame */
+.dk-hero-price-card {
+  bottom: 55px !important;
+  right: calc(50% - 190px - 20px) !important; /* Overlaps the bottom-right border of the image frame */
+  z-index: 5 !important;
+}
+
+/* Ensure the layout scales down beautifully on smaller laptop & tablet displays */
+@media (max-width: 1024px) {
+  .dk-slide img {
+    max-width: 280px !important;
+    height: 360px !important;
+  }
+  .dk-hero-badge {
+    top: 40px !important;
+    left: calc(50% - 140px - 24px) !important;
+  }
+  .dk-hero-price-card {
+    bottom: 40px !important;
+    right: calc(50% - 140px - 15px) !important;
+  }
+}
+
+/* ============================================================
+   NAVBAR CENTERING & FULL WIDTH OVERRIDES
+============================================================ */
+
+/* 1. Force the navbar wrapper to occupy full screen width and center items */
+#masthead,
+.ast-primary-header-bar,
+.ast-primary-header-bar .ast-container,
+.ast-main-header-bar .ast-container {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 48px !important;
+  display: flex !important;
+  justify-content: center !important; /* Centers the content block horizontally */
+  align-items: center !important;
+  background: var(--dk-dark) !important; /* Seamless dark background across the full viewport */
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+/* 2. Override Astra's grid columns to remove left alignment and center-align the cells */
+.site-header-primary-section-left,
+.site-header-primary-section-center,
+.site-header-primary-section-right,
+.ast-builder-grid-row-cell {
+  display: flex !important;
+  justify-content: center !important; /* Forces the contents of columns to align centrally */
+  align-items: center !important;
+  flex-grow: 1 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 3. Make navigation wrappers transparent and center-aligned */
+.main-navigation,
+.ast-builder-menu-1,
+#ast-hf-menu-1,
+.main-header-bar-navigation {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important; /* Centers the menu list inside the block */
+  background: transparent !important; /* Clears any lighter grey box colors */
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 4. Horizontal alignment and styling for navigation link items */
+.main-header-menu {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: auto !important;
+  gap: 40px !important; /* Sets clean premium spacing between your menu links */
+  background: transparent !important;
+  border: none !important;
+}
+
+/* 5. Clean up any grid structural boxes that Astra uses */
+.ast-grid-common-col,
+.ast-builder-grid-row {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ============================================================
+   NAVBAR HEIGHT POLISH (SLIMMER HEIGHT)
+============================================================ */
+
+/* 1. Force a slim, fixed height on the main navbar containers */
+#masthead,
+.ast-primary-header-bar,
+.ast-primary-header-bar .ast-container,
+.ast-main-header-bar .ast-container {
+  height: 52px !important;      /* Sets a thin, premium vertical height */
+  min-height: 52px !important;  /* Overrides Astra's default taller min-height */
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* 2. Remove default top/bottom paddings and margins from inner grid builders */
+.ast-primary-header-bar .ast-builder-grid-row,
+.ast-primary-header-bar .ast-grid-common-col,
+.ast-primary-header-bar .ast-builder-grid-row-cell {
+  height: 100% !important;
+  min-height: 100% !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* 3. Adjust menu link padding so they align perfectly in the middle of the slim bar */
+.main-navigation a,
+.ast-main-navigation a,
+#ast-hf-menu-1 a {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  line-height: 1.2 !important;
+}
+
+/* ============================================================
+   RESPONSIVE HAMBURGER ICON COLOR
+============================================================ */
+/* Color the mobile menu hamburger icon to match your brand's amber accent */
+.ast-mobile-menu-trigger-wrapper .ast-button-wrap .menu-toggle {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--dk-amber) !important;
+}
+
+.ast-mobile-menu-trigger-wrapper .ast-button-wrap .menu-toggle .ast-icon {
+  fill: var(--dk-amber) !important;
+}
+
+/* ============================================================
+   DARK THEME MOBILE MENU POPUP / DRAWER
+============================================================ */
+/* Force Astra's mobile sliding menu drawer to be dark-mode-friendly */
+.ast-mobile-popup-drawer,
+.ast-mobile-popup-container,
+.ast-mobile-menu-wrap,
+.ast-mobile-popup-inner,
+.ast-mobile-popup-content {
+  background-color: var(--dk-black) !important;
+  background: var(--dk-black) !important;
+  color: var(--dk-text) !important;
+}
+
+/* Style the links inside the mobile sliding drawer */
+.ast-mobile-popup-drawer a,
+.ast-mobile-popup-drawer .menu-item a {
+  color: var(--dk-cream) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  border: none !important;
+}
+
+.ast-mobile-popup-drawer a:hover {
+  color: var(--dk-amber) !important;
+}
+
+/* Color the closing 'X' button inside the mobile drawer */
+.ast-mobile-popup-drawer .menu-toggle-close,
+.ast-mobile-popup-drawer .ast-close-svg {
+  fill: var(--dk-cream) !important;
+  color: var(--dk-cream) !important;
+}
+
+/* ============================================================
+   TABLET RESPONSIVE OVERRIDES (1024px and below)
+============================================================ */
+@media (max-width: 1024px) {
+  /* Stack columns vertically and remove split line */
+  .dk-hero {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  .dk-hero-left {
+    padding: 48px 24px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--dk-border) !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .dk-hero-right {
+    width: 100% !important;
+    min-height: 480px !important;
+    padding: 40px 24px !important;
+  }
+
+  /* Scale typography so text does not overflow screen boundaries */
+  .dk-hero-bn {
+    font-size: 44px !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+
+  .dk-hero-en {
+    font-size: 22px !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+  }
+
+  .dk-hero-sub {
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .dk-hero-btns {
+    justify-content: center !important;
+  }
+
+  /* Retain portrait image dimensions on tablet screens */
+  .dk-slide img {
+    max-width: 280px !important;
+    height: 360px !important;
+  }
+
+  /* Center the badges and overlays relative to the responsive centered frame */
+  .dk-hero-badge {
+    top: 25px !important;
+    left: calc(50% - 140px - 20px) !important;
+  }
+
+  .dk-hero-price-card {
+    bottom: 25px !important;
+    right: calc(50% - 140px - 10px) !important;
+  }
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE OVERRIDES (768px and below)
+============================================================ */
+@media (max-width: 768px) {
+  .dk-hero-right {
+    min-height: 400px !important;
+  }
+
+  .dk-slide img {
+    max-width: 230px !important;
+    height: 300px !important;
+  }
+
+  .dk-hero-badge {
+    top: 20px !important;
+    left: calc(50% - 115px - 20px) !important;
+  }
+
+  .dk-hero-price-card {
+    bottom: 20px !important;
+    right: calc(50% - 115px - 10px) !important;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE HAMBURGER ICON COLOR
+============================================================ */
+/* Color the mobile menu hamburger icon to match your brand's amber accent */
+.ast-mobile-menu-trigger-wrapper .ast-button-wrap .menu-toggle {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--dk-amber) !important;
+}
+
+.ast-mobile-menu-trigger-wrapper .ast-button-wrap .menu-toggle .ast-icon {
+  fill: var(--dk-amber) !important;
+}
+
+/* ============================================================
+   DARK THEME MOBILE MENU POPUP / DRAWER
+============================================================ */
+/* Force Astra's mobile sliding menu drawer to be dark-mode-friendly */
+.ast-mobile-popup-drawer,
+.ast-mobile-popup-container,
+.ast-mobile-menu-wrap,
+.ast-mobile-popup-inner,
+.ast-mobile-popup-content {
+  background-color: var(--dk-black) !important;
+  background: var(--dk-black) !important;
+  color: var(--dk-text) !important;
+}
+
+/* Style the links inside the mobile sliding drawer */
+.ast-mobile-popup-drawer a,
+.ast-mobile-popup-drawer .menu-item a {
+  color: var(--dk-cream) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  border: none !important;
+}
+
+.ast-mobile-popup-drawer a:hover {
+  color: var(--dk-amber) !important;
+}
+
+/* Color the closing 'X' button inside the mobile drawer */
+.ast-mobile-popup-drawer .menu-toggle-close,
+.ast-mobile-popup-drawer .ast-close-svg {
+  fill: var(--dk-cream) !important;
+  color: var(--dk-cream) !important;
+}
+
+/* ============================================================
+   TABLET RESPONSIVE OVERRIDES (1024px and below)
+============================================================ */
+@media (max-width: 1024px) {
+  /* Stack columns vertically and remove split line */
+  .dk-hero {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  .dk-hero-left {
+    padding: 48px 24px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--dk-border) !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .dk-hero-right {
+    width: 100% !important;
+    min-height: 480px !important;
+    padding: 40px 24px !important;
+  }
+
+  /* Scale typography so text does not overflow screen boundaries */
+  .dk-hero-bn {
+    font-size: 44px !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+
+  .dk-hero-en {
+    font-size: 22px !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+  }
+
+  .dk-hero-sub {
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .dk-hero-btns {
+    justify-content: center !important;
+  }
+
+  /* Retain portrait image dimensions on tablet screens */
+  .dk-slide img {
+    max-width: 280px !important;
+    height: 360px !important;
+  }
+
+  /* Center the badges and overlays relative to the responsive centered frame */
+  .dk-hero-badge {
+    top: 25px !important;
+    left: calc(50% - 140px - 20px) !important;
+  }
+
+  .dk-hero-price-card {
+    bottom: 25px !important;
+    right: calc(50% - 140px - 10px) !important;
+  }
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE OVERRIDES (768px and below)
+============================================================ */
+@media (max-width: 768px) {
+  .dk-hero-right {
+    min-height: 400px !important;
+  }
+
+  .dk-slide img {
+    max-width: 230px !important;
+    height: 300px !important;
+  }
+
+  .dk-hero-badge {
+    top: 20px !important;
+    left: calc(50% - 115px - 20px) !important;
+  }
+
+  .dk-hero-price-card {
+    bottom: 20px !important;
+    right: calc(50% - 115px - 10px) !important;
+  }
+}
+
+/* ============================================================
+   MOBILE & TABLET NAV COMPLETE FIX
+============================================================ */
+
+/* Hamburger button color */
+.ast-mobile-menu-buttons .menu-toggle,
+.ast-mobile-menu-buttons button,
+.ast-header-break-point .ast-mobile-menu-buttons .menu-toggle {
+  color: var(--dk-cream) !important;
+  background: transparent !important;
+  border: 1px solid var(--dk-border) !important;
+  padding: 8px 12px !important;
+}
+
+.ast-mobile-menu-buttons .menu-toggle:hover {
+  border-color: var(--dk-amber) !important;
+  color: var(--dk-amber) !important;
+}
+
+/* Hamburger icon lines */
+.ast-mobile-menu-buttons .menu-toggle .menu-toggle-icon,
+.ast-mobile-menu-buttons .menu-toggle span {
+  background: var(--dk-cream) !important;
+}
+
+/* Mobile menu dropdown panel */
+.ast-header-break-point .main-navigation,
+.ast-header-break-point #ast-hf-menu-1,
+.ast-header-break-point .ast-main-navigation,
+.ast-mobile-header-wrap .main-navigation,
+.ast-mobile-popup-content,
+.ast-below-header-section,
+.ast-mobile-menu-wrap {
+  background: #0A0A0A !important;
+  border-top: 1px solid var(--dk-border) !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+/* Mobile menu items */
+.ast-header-break-point .main-navigation ul,
+.ast-header-break-point .main-navigation ul li,
+.ast-mobile-popup-content ul,
+.ast-mobile-popup-content ul li {
+  background: var(--dk-black) !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+.ast-header-break-point .main-navigation ul li a,
+.ast-mobile-popup-content ul li a,
+.ast-header-break-point #ast-hf-menu-1 li a {
+  color: var(--dk-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  padding: 16px 24px !important;
+  background: var(--dk-black) !important;
+  display: block !important;
+  transition: all 0.2s !important;
+}
+
+.ast-header-break-point .main-navigation ul li a:hover,
+.ast-mobile-popup-content ul li a:hover {
+  color: var(--dk-amber) !important;
+  background: var(--dk-card) !important;
+  padding-left: 32px !important;
+}
+
+/* Active menu item */
+.ast-header-break-point .main-navigation ul li.current-menu-item a {
+  color: var(--dk-amber) !important;
+  border-left: 2px solid var(--dk-amber) !important;
+}
+
+/* Mobile header bar */
+.ast-header-break-point #masthead,
+.ast-header-break-point .ast-primary-header-bar,
+.ast-mobile-header-wrap {
+  background: var(--dk-black) !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  min-height: 60px !important;
+}
+
+/* Logo bar on mobile */
+.dk-logo-bar {
+  padding: 14px 24px !important;
+}
+
+.dk-logo-main {
+  font-size: 18px !important;
+}
+
+.dk-logo-bn {
+  font-size: 13px !important;
+}
+
+/* Mobile header layout — logo left, burger right */
+.ast-header-break-point .ast-main-header-bar .ast-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 20px !important;
+}
+
+/* Show site title in mobile nav beside burger */
+.ast-header-break-point .ast-site-identity {
+  display: flex !important;
+  align-items: center !important;
+  order: 1 !important;
+}
+
+.ast-header-break-point .ast-site-identity .site-title a {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: var(--dk-cream) !important;
+  white-space: nowrap !important;
+}
+
+/* Burger button — right side */
+.ast-header-break-point .ast-mobile-menu-buttons {
+  order: 2 !important;
+  margin-left: auto !important;
+}
+
+/* Close button in mobile menu */
+.ast-mobile-popup-close,
+.menu-toggle.toggled-on .menu-toggle-icon {
+  color: var(--dk-amber) !important;
+}
+
+/* Mobile close X button */
+.ast-mobile-popup .ast-mobile-popup-header {
+  background: var(--dk-black) !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+  padding: 16px 24px !important;
+}
+
+.ast-mobile-popup .ast-mobile-popup-header button {
+  color: var(--dk-cream) !important;
+  background: transparent !important;
+}
+
+/* Off canvas menu if used */
+.ast-mobile-popup-content {
+  background: var(--dk-black) !important;
+  width: 280px !important;
+}
+
+.ast-mobile-popup-overlay {
+  background: rgba(0,0,0,0.7) !important;
+}
+
+/* Fix white background on mobile nav slide */
+.ast-mobile-header-content,
+.ast-below-header-navigation {
+  background: var(--dk-black) !important;
+}
+
+/* Mobile hero fix */
+@media (max-width: 768px) {
+  .dk-hero {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .dk-hero-left {
+    padding: 48px 24px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--dk-border) !important;
+  }
+
+  .dk-hero-bn {
+    font-size: 48px !important;
+  }
+
+  .dk-hero-en {
+    font-size: 26px !important;
+  }
+
+  .dk-hero-right {
+    min-height: 380px !important;
+  }
+
+  .dk-hero-price-card {
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 150px !important;
+    min-width: 150px !important;
+    max-width: 150px !important;
+  }
+
+  .dk-price-val {
+    font-size: 22px !important;
+  }
+
+  .dk-section,
+  .dk-section-alt {
+    padding: 40px 20px !important;
+  }
+
+  .dk-cat-grid {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+  }
+
+  .dk-cat-card {
+    height: 160px !important;
+  }
+
+  .dk-product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .dk-reviews-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dk-pack-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dk-story-strip {
+    flex-direction: column !important;
+    padding: 32px 24px !important;
+    gap: 28px !important;
+    text-align: center !important;
+  }
+
+  .dk-stats {
+    justify-content: center !important;
+    gap: 28px !important;
+  }
+
+  .dk-bkash-bar {
+    flex-direction: column !important;
+    padding: 24px 20px !important;
+    gap: 16px !important;
+    text-align: center !important;
+  }
+
+  .dk-footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .dk-footer {
+    padding: 36px 20px 20px !important;
+  }
+
+  .dk-footer-bottom {
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+
+  .dk-announcement-bar {
+    font-size: 10px !important;
+    padding: 8px 12px !important;
+  }
+
+  .dk-ticker-inner {
+    font-size: 10px !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .dk-hero {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .dk-hero-left {
+    padding: 48px 36px !important;
+  }
+
+  .dk-hero-bn {
+    font-size: 52px !important;
+  }
+
+  .dk-product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .dk-footer-top {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px !important;
+  }
+
+  .dk-section,
+  .dk-section-alt {
+    padding: 48px 32px !important;
+  }
+}
+/* ============================================================
+   MOBILE NAV — LOGO LEFT + BURGER RIGHT SAME LINE
+============================================================ */
+
+/* Hide our custom logo bar on mobile — use Astra's header instead */
+@media (max-width: 1024px) {
+  .dk-logo-bar {
+    display: none !important;
+  }
+
+  /* Show Astra site identity on mobile */
+  .ast-header-break-point .ast-site-identity {
+    display: flex !important;
+    align-items: center !important;
+    order: 1 !important;
+    flex: 1 !important;
+  }
+
+  .ast-header-break-point .ast-site-identity .site-title {
+    display: block !important;
+  }
+
+  .ast-header-break-point .ast-site-identity .site-title a {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: var(--dk-cream) !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    flex-direction: column !important;
+    line-height: 1.2 !important;
+    text-decoration: none !important;
+  }
+
+  /* Add Bengali text under site title on mobile */
+  .ast-header-break-point .ast-site-identity .site-title a::after {
+    content: 'দাম কতো?' !important;
+    font-size: 12px !important;
+    color: var(--dk-amber) !important;
+    letter-spacing: 0.04em !important;
+    font-weight: 700 !important;
+  }
+
+  /* Mobile header bar layout */
+  .ast-header-break-point .ast-main-header-bar .ast-container,
+  .ast-header-break-point #masthead .ast-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 20px !important;
+    min-height: 60px !important;
+    width: 100% !important;
+  }
+
+  /* Burger button — right side */
+  .ast-header-break-point .ast-mobile-menu-buttons {
+    order: 2 !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Style the burger button */
+  .ast-header-break-point .ast-mobile-menu-buttons .menu-toggle {
+    background: transparent !important;
+    border: 1px solid var(--dk-border) !important;
+    color: var(--dk-cream) !important;
+    padding: 8px 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    font-family: 'DM Sans', sans-serif !important;
+  }
+
+  .ast-header-break-point .ast-mobile-menu-buttons .menu-toggle:hover {
+    border-color: var(--dk-amber) !important;
+    color: var(--dk-amber) !important;
+  }
+
+  /* Burger icon lines — make them white */
+  .ast-header-break-point .menu-toggle .ast-icon {
+    color: var(--dk-cream) !important;
+    fill: var(--dk-cream) !important;
+  }
+
+  /* Remove any margin pushing burger down */
+  .ast-header-break-point .ast-mobile-menu-buttons {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Mobile header background */
+  .ast-header-break-point #masthead {
+    background: var(--dk-black) !important;
+    border-bottom: 1px solid var(--dk-border) !important;
+    padding: 0 !important;
+    min-height: 60px !important;
+  }
+
+  /* Hide desktop nav links on mobile */
+  .ast-header-break-point .main-navigation {
+    display: none !important;
+  }
+
+  .ast-header-break-point .main-navigation.toggled {
+    display: block !important;
+    width: 100% !important;
+    background: var(--dk-black) !important;
+  }
+
+  /* Mobile dropdown menu */
+  .ast-header-break-point .main-navigation ul {
+    background: var(--dk-black) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    border-top: 1px solid var(--dk-border) !important;
+  }
+
+  .ast-header-break-point .main-navigation ul li {
+    border-bottom: 1px solid var(--dk-border) !important;
+  }
+
+  .ast-header-break-point .main-navigation ul li a {
+    display: block !important;
+    padding: 16px 24px !important;
+    color: var(--dk-text) !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    background: var(--dk-black) !important;
+    transition: all 0.2s !important;
+  }
+
+  .ast-header-break-point .main-navigation ul li a:hover {
+    color: var(--dk-amber) !important;
+    background: var(--dk-card) !important;
+    padding-left: 32px !important;
+  }
+
+  .ast-header-break-point .main-navigation ul li.current-menu-item > a {
+    color: var(--dk-amber) !important;
+    border-left: 2px solid var(--dk-amber) !important;
+  }
+}
+
+/* Also hide logo bar on desktop when using Astra header */
+@media (min-width: 1025px) {
+  /* Keep logo bar visible on desktop */
+  .dk-logo-bar {
+    display: flex !important;
+  }
+}
+
+/* ============================================================
+   MOBILE NAV FINAL FIX — BURGER LEFT, LOGO CENTER
+============================================================ */
+@media (max-width: 1024px) {
+
+  /* Show our logo bar on mobile too */
+  .dk-logo-bar {
+    display: flex !important;
+    position: relative !important;
+    padding: 14px 20px !important;
+  }
+
+  /* Burger button — absolute top left */
+  .ast-header-break-point #masthead {
+    background: var(--dk-black) !important;
+    border-bottom: 1px solid var(--dk-border) !important;
+    min-height: 48px !important;
+    padding: 0 !important;
+  }
+
+  .ast-header-break-point .ast-main-header-bar .ast-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 8px 16px !important;
+    min-height: 48px !important;
+  }
+
+  /* Hide site title in Astra nav bar */
+  .ast-header-break-point .ast-site-identity {
+    display: none !important;
+  }
+
+  /* Burger button styling */
+  .ast-header-break-point .ast-mobile-menu-buttons {
+    order: 1 !important;
+    margin: 0 !important;
+  }
+
+  .ast-header-break-point .ast-mobile-menu-buttons .menu-toggle {
+    background: transparent !important;
+    border: 1px solid var(--dk-border) !important;
+    color: var(--dk-cream) !important;
+    padding: 7px 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+  }
+
+  .ast-header-break-point .ast-mobile-menu-buttons .menu-toggle:hover {
+    border-color: var(--dk-amber) !important;
+    color: var(--dk-amber) !important;
+  }
+
+  /* Burger icon color */
+  .ast-header-break-point .menu-toggle .ast-icon,
+  .ast-header-break-point .menu-toggle svg {
+    fill: var(--dk-cream) !important;
+    color: var(--dk-cream) !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Mobile dropdown menu */
+  .ast-header-break-point .main-navigation {
+    width: 100% !important;
+    background: var(--dk-black) !important;
+    border-top: 1px solid var(--dk-border) !important;
+  }
+
+  .ast-header-break-point .main-navigation ul {
+    background: var(--dk-black) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  .ast-header-break-point .main-navigation ul li {
+    border-bottom: 1px solid var(--dk-border) !important;
+    background: var(--dk-black) !important;
+  }
+
+  .ast-header-break-point .main-navigation ul li a {
+    display: block !important;
+    padding: 15px 24px !important;
+    color: #888 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    background: var(--dk-black) !important;
+    transition: all 0.2s !important;
+    border: none !important;
+  }
+
+  .ast-header-break-point .main-navigation ul li a:hover {
+    color: var(--dk-amber) !important;
+    background: var(--dk-card) !important;
+    padding-left: 32px !important;
+  }
+
+  .ast-header-break-point .main-navigation ul li.current-menu-item > a {
+    color: var(--dk-amber) !important;
+    border-left: 2px solid var(--dk-amber) !important;
+  }
+
+  /* Logo bar — keep centered */
+  .dk-logo-bar {
+    justify-content: center !important;
+    border-bottom: none !important;
+  }
+
+  .dk-logo-main {
+    font-size: 17px !important;
+    text-align: center !important;
+  }
+
+  .dk-logo-bn {
+    font-size: 13px !important;
+    text-align: center !important;
+  }
+}
+
+/* ============================================================
+   MOBILE COMPLETE REDESIGN
+============================================================ */
+@media (max-width: 1024px) {
+
+  /* Hide Astra's entire header on mobile */
+  #masthead,
+  .ast-primary-header-bar {
+    display: none !important;
+  }
+
+  /* Hide desktop logo bar */
+  .dk-logo-bar {
+    display: none !important;
+  }
+
+  /* ── CUSTOM MOBILE HEADER ── */
+  .dk-mobile-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: var(--dk-black) !important;
+    border-bottom: 1px solid var(--dk-border) !important;
+    padding: 0 20px !important;
+    height: 60px !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+  }
+
+  .dk-mobile-logo {
+    display: flex !important;
+    flex-direction: column !important;
+    line-height: 1.2 !important;
+    text-decoration: none !important;
+  }
+
+  .dk-mobile-logo-en {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    color: var(--dk-cream) !important;
+  }
+
+  .dk-mobile-logo-bn {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: var(--dk-amber) !important;
+  }
+
+  /* Burger button */
+  .dk-burger {
+    background: transparent !important;
+    border: 1px solid var(--dk-border) !important;
+    color: var(--dk-cream) !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    transition: border-color 0.2s !important;
+    flex-shrink: 0 !important;
+  }
+
+  .dk-burger:hover {
+    border-color: var(--dk-amber) !important;
+  }
+
+  .dk-burger span {
+    display: block !important;
+    width: 18px !important;
+    height: 1.5px !important;
+    background: var(--dk-cream) !important;
+    transition: all 0.3s !important;
+  }
+
+  .dk-burger.open span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg) !important;
+    background: var(--dk-amber) !important;
+  }
+
+  .dk-burger.open span:nth-child(2) {
+    opacity: 0 !important;
+  }
+
+  .dk-burger.open span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg) !important;
+    background: var(--dk-amber) !important;
+  }
+
+  /* Mobile nav drawer */
+  .dk-mobile-nav {
+    display: none !important;
+    position: fixed !important;
+    top: 60px !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: var(--dk-black) !important;
+    border-bottom: 1px solid var(--dk-border) !important;
+    z-index: 9998 !important;
+    padding: 8px 0 !important;
+  }
+
+  .dk-mobile-nav.open {
+    display: block !important;
+  }
+
+  .dk-mobile-nav a {
+    display: block !important;
+    padding: 14px 24px !important;
+    color: #888 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid var(--dk-border) !important;
+    transition: all 0.2s !important;
+  }
+
+  .dk-mobile-nav a:last-child {
+    border-bottom: none !important;
+  }
+
+  .dk-mobile-nav a:hover {
+    color: var(--dk-amber) !important;
+    background: var(--dk-card) !important;
+    padding-left: 32px !important;
+  }
+
+  /* Mobile hero — single column */
+  .dk-hero {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .dk-hero-left {
+    padding: 40px 24px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--dk-border) !important;
+    order: 2 !important;
+  }
+
+  .dk-hero-right {
+    min-height: 340px !important;
+    order: 1 !important;
+  }
+
+  .dk-hero-bn { font-size: 44px !important; }
+  .dk-hero-en { font-size: 24px !important; }
+  .dk-hero-sub { font-size: 13px !important; }
+
+  .dk-hero-btns {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .dk-btn-primary,
+  .dk-btn-ghost {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .dk-hero-price-card {
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 148px !important;
+    min-width: 148px !important;
+    max-width: 148px !important;
+    padding: 14px 16px !important;
+  }
+
+  .dk-price-val { font-size: 20px !important; }
+
+  .dk-hero-badge {
+    width: 52px !important;
+    height: 52px !important;
+    top: 16px !important;
+    left: 16px !important;
+  }
+
+  .dk-badge-text { font-size: 7px !important; }
+
+  /* Mobile sections */
+  .dk-section,
+  .dk-section-alt {
+    padding: 40px 20px !important;
+  }
+
+  .dk-section-title { font-size: 22px !important; }
+
+  /* Mobile categories */
+  .dk-cat-grid {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    gap: 8px !important;
+  }
+
+  .dk-cat-card { height: 150px !important; }
+
+  /* Mobile products */
+  .dk-product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .dk-product-img { height: 180px !important; }
+
+  .dk-product-name { font-size: 11px !important; }
+
+  .dk-product-price { font-size: 15px !important; }
+
+  /* Mobile story strip */
+  .dk-story-strip {
+    flex-direction: column !important;
+    padding: 32px 20px !important;
+    gap: 24px !important;
+    text-align: center !important;
+  }
+
+  .dk-story-title { font-size: 20px !important; }
+
+  .dk-stats {
+    justify-content: center !important;
+    gap: 24px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .dk-stat-num { font-size: 28px !important; }
+
+  /* Mobile reviews */
+  .dk-reviews-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Mobile packaging */
+  .dk-pack-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* Mobile bKash */
+  .dk-bkash-bar {
+    flex-direction: column !important;
+    padding: 24px 20px !important;
+    gap: 16px !important;
+    text-align: center !important;
+  }
+
+  .dk-bkash-title { font-size: 18px !important; }
+
+  .dk-bkash-btn {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Mobile footer */
+  .dk-footer {
+    padding: 36px 20px 20px !important;
+  }
+
+  .dk-footer-top {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+  }
+
+  .dk-footer-bottom {
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+
+  .dk-pay-row {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* Mobile ticker */
+  .dk-ticker-inner { font-size: 10px !important; }
+
+  .dk-announcement-bar {
+    font-size: 10px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .dk-footer-top {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dk-hero-bn { font-size: 36px !important; }
+}
+
+/* Hide mobile header on desktop */
+.dk-mobile-header,
+.dk-mobile-nav {
+  display: none !important;
+}
+
+/* Only show on mobile/tablet */
+@media (max-width: 1024px) {
+  .dk-hero {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Text first on mobile */
+  .dk-hero-left {
+    order: 1 !important;
+    padding: 40px 24px 36px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--dk-border) !important;
+  }
+
+  /* Image second on mobile */
+  .dk-hero-right {
+    order: 2 !important;
+    min-height: 380px !important;
+    width: 100% !important;
+  }
+}
+
+/* On desktop — hide mobile elements completely */
+@media (min-width: 1025px) {
+  .dk-mobile-header {
+    display: none !important;
+  }
+
+  .dk-mobile-nav {
+    display: none !important;
+  }
+
+  /* Show Astra header on desktop */
+  #masthead,
+  .ast-primary-header-bar {
+    display: flex !important;
+  }
+
+  /* Show logo bar on desktop */
+  .dk-logo-bar {
+    display: flex !important;
+  }
+}
+
+/* ============================================================
+   MOBILE HEADER — FORCE SHOW
+============================================================ */
+@media (max-width: 1024px) {
+  .dk-mobile-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: var(--dk-black) !important;
+    border-bottom: 1px solid var(--dk-border) !important;
+    padding: 0 20px !important;
+    height: 60px !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .dk-mobile-header {
+    display: none !important;
+  }
+  .dk-mobile-nav {
+    display: none !important;
+  }
+}
+
+/* ============================================================
+   PRODUCT CARDS COMPLETE REDESIGN
+============================================================ */
+
+/* Product grid */
+.dk-product-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 12px !important;
+}
+
+/* Product card — fully clickable */
+.dk-product-card {
+  background: var(--dk-black) !important;
+  border: 1px solid var(--dk-border) !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  transition: border-color 0.25s, transform 0.25s !important;
+  position: relative !important;
+  display: block !important;
+  text-decoration: none !important;
+}
+
+.dk-product-card:hover {
+  border-color: var(--dk-amber) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* Product image — 3:4 aspect ratio */
+.dk-product-img {
+  position: relative !important;
+  width: 100% !important;
+  padding-top: 133.33% !important;
+  overflow: hidden !important;
+  background: var(--dk-card) !important;
+  height: auto !important;
+}
+
+.dk-product-img img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+  transition: transform 0.4s ease !important;
+  display: block !important;
+}
+
+.dk-product-card:hover .dk-product-img img {
+  transform: scale(1.06) !important;
+}
+
+/* Hover overlay with button — desktop only */
+.dk-product-hover-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(10,10,10,0.45) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0 !important;
+  transition: opacity 0.25s !important;
+  z-index: 2 !important;
+}
+
+.dk-product-card:hover .dk-product-hover-overlay {
+  opacity: 1 !important;
+}
+
+.dk-hover-btn {
+  background: var(--dk-amber) !important;
+  color: var(--dk-black) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  padding: 12px 24px !important;
+  border: none !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  transition: background 0.2s !important;
+}
+
+.dk-hover-btn:hover {
+  background: var(--dk-amber2) !important;
+  color: var(--dk-black) !important;
+}
+
+/* Badge */
+.dk-p-badge {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  padding: 4px 10px !important;
+  z-index: 3 !important;
+}
+
+.dk-badge-new { background: var(--dk-amber) !important; color: var(--dk-black) !important; }
+.dk-badge-sale { background: var(--dk-cream) !important; color: var(--dk-black) !important; }
+
+/* Product info — no button */
+.dk-product-info {
+  padding: 14px 14px 16px !important;
+  border-top: 1px solid var(--dk-border) !important;
+}
+
+.dk-product-name {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #CCC !important;
+  margin-bottom: 6px !important;
+  line-height: 1.4 !important;
+}
+
+.dk-price-row {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 8px !important;
+  margin-bottom: 0 !important;
+}
+
+.dk-product-price {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 17px !important;
+  color: var(--dk-cream) !important;
+}
+
+.dk-product-price-old {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  color: #444 !important;
+  text-decoration: line-through !important;
+}
+
+.dk-size-row {
+  display: flex !important;
+  gap: 4px !important;
+  flex-wrap: wrap !important;
+  margin-top: 8px !important;
+}
+
+.dk-size-tag {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 9px !important;
+  color: #555 !important;
+  border: 1px solid var(--dk-border) !important;
+  padding: 3px 7px !important;
+  letter-spacing: 0.06em !important;
+  transition: all 0.2s !important;
+}
+
+.dk-size-tag:hover {
+  border-color: var(--dk-amber) !important;
+  color: var(--dk-amber) !important;
+}
+
+/* Hide the old "View Product" button completely */
+.dk-product-info .dk-btn-primary {
+  display: none !important;
+}
+
+/* Mobile — show button always (no hover on touch) */
+@media (max-width: 768px) {
+  .dk-product-hover-overlay {
+    display: none !important;
+  }
+
+  .dk-product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .dk-product-name { font-size: 12px !important; }
+  .dk-product-price { font-size: 15px !important; }
+}
+
+/* ============================================================
+   CATEGORY GRID — 6 CARDS
+============================================================ */
+.dk-cat-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-rows: repeat(2, 200px) !important;
+  gap: 8px !important;
+  height: auto !important;
+}
+
+.dk-cat-card {
+  background: var(--dk-card) !important;
+  border: 1px solid var(--dk-border) !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 14px !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  transition: border-color 0.2s !important;
+  text-decoration: none !important;
+}
+
+.dk-cat-card:hover { border-color: var(--dk-amber) !important; }
+
+.dk-cat-img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  transition: transform 0.4s !important;
+}
+
+.dk-cat-card:hover .dk-cat-img { transform: scale(1.05) !important; }
+
+.dk-cat-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.1) 60%) !important;
+  z-index: 1 !important;
+}
+
+.dk-cat-label {
+  position: relative !important;
+  z-index: 2 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  background: var(--dk-amber) !important;
+  color: var(--dk-black) !important;
+  padding: 6px 12px !important;
+  text-decoration: none !important;
+}
+
+/* Mobile categories */
+@media (max-width: 768px) {
+  .dk-cat-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: repeat(3, 160px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .dk-cat-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: repeat(3, 140px) !important;
+  }
 }

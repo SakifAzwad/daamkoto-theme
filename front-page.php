@@ -5,6 +5,44 @@
  */
 get_header();
 ?>
+<!-- LOGO BAR -->
+<!-- <div class="dk-logo-bar">
+    <a href="<?php echo home_url(); ?>" class="dk-logo-link">
+        <?php
+        $custom_logo_id = get_theme_mod('custom_logo');
+        if ($custom_logo_id) {
+            echo wp_get_attachment_image($custom_logo_id, 'full', false, array('class' => 'dk-logo-img'));
+        } else {
+        ?>
+        <div class="dk-logo-text-wrap">
+            <div class="dk-logo-main">Daam Koto?</div>
+            <div class="dk-logo-bn">দাম কতো?</div>
+        </div>
+        <?php } ?>
+    </a>
+</div> -->
+
+<div class="dk-mobile-header">
+    <a href="<?php echo home_url(); ?>" class="dk-mobile-logo">
+        <span class="dk-mobile-logo-en">Daam Koto?</span>
+        <span class="dk-mobile-logo-bn">দাম কতো?</span>
+    </a>
+    <button class="dk-burger" id="dkBurger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</div>
+
+<!-- MOBILE NAV DRAWER -->
+<nav class="dk-mobile-nav" id="dkMobileNav">
+    <a href="<?php echo get_permalink(wc_get_page_id('shop')); ?>">Shop</a>
+    <a href="<?php echo get_permalink(wc_get_page_id('shop')); ?>?orderby=popularity">Women</a>
+    <a href="#">Sale</a>
+    <a href="<?php echo get_page_link(get_page_by_title('About Us')); ?>">About Us</a>
+    <a href="<?php echo get_page_link(get_page_by_title('Contact Us')); ?>">Contact Us</a>
+</nav>
+
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="dk-announcement-bar">
@@ -31,19 +69,66 @@ get_header();
         </div>
     </div>
     <div class="dk-hero-right">
-        <div class="dk-hero-badge">
-            <div class="dk-badge-text">Made<br>in BD</div>
-        </div>
-        <div class="dk-hero-img-frame">
-            <!-- Replace with actual product image -->
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/hero-product.jpg" alt="Daam Koto Collection" onerror="this.style.display='none'">
-        </div>
-        <div class="dk-hero-price-card">
-            <div class="dk-price-label">Starting from</div>
-            <div class="dk-price-val">৳599</div>
-            <div class="dk-price-sub">Free delivery ৳999+</div>
-        </div>
+    <div class="dk-hero-badge">
+        <div class="dk-badge-text">Made<br>in BD</div>
     </div>
+
+    <!-- PRODUCT SLIDER -->
+    <div class="dk-hero-slider" id="dkSlider">
+        <?php
+        $hero_products = wc_get_products(array(
+            'limit'   => 5,
+            'orderby' => 'date',
+            'order'   => 'DESC',
+            'status'  => 'publish',
+        ));
+
+        $first = true;
+        foreach ($hero_products as $product) :
+            $img_url   = get_the_post_thumbnail_url($product->get_id(), 'large');
+            $price     = $product->get_price();
+            $name      = $product->get_name();
+            $permalink = $product->get_permalink();
+            $active    = $first ? 'active' : '';
+            $first     = false;
+        ?>
+        <div class="dk-slide <?php echo $active; ?>"
+             data-price="৳<?php echo number_format($price, 0); ?>"
+             data-name="<?php echo esc_attr($name); ?>"
+             data-link="<?php echo esc_url($permalink); ?>">
+            <?php if ($img_url) : ?>
+                <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" />
+            <?php else : ?>
+                <div class="dk-slide-no-img"></div>
+            <?php endif; ?>
+        </div>
+        <?php endforeach; ?>
+    </div>
+
+    <!-- DOTS -->
+    <div class="dk-slider-dots" id="dkDots">
+        <?php
+        $i     = 0;
+        $first = true;
+        foreach ($hero_products as $product) :
+            $active = $first ? 'active' : '';
+            $first  = false;
+        ?>
+        <button class="dk-slider-dot <?php echo $active; ?>" data-index="<?php echo $i; ?>"></button>
+        <?php $i++; endforeach; ?>
+    </div>
+
+    <!-- PRICE CARD — updates with slider -->
+    <div class="dk-hero-price-card" id="dkPriceCard">
+        <div class="dk-price-label" id="dkProductName">
+            <?php if (!empty($hero_products)) echo esc_html($hero_products[0]->get_name()); ?>
+        </div>
+        <div class="dk-price-val" id="dkProductPrice">
+            <?php if (!empty($hero_products)) echo '৳' . number_format($hero_products[0]->get_price(), 0); ?>
+        </div>
+        <a href="<?php if (!empty($hero_products)) echo esc_url($hero_products[0]->get_permalink()); ?>" class="dk-price-btn" id="dkProductLink">View →</a>
+    </div>
+</div>
 </section>
 
 <!-- TICKER -->
@@ -52,7 +137,7 @@ get_header();
         New Arrivals <span class="dk-acc">✦</span>
         Handcrafted with Love <span class="dk-acc">✦</span>
         bKash Payment <span class="dk-acc">✦</span>
-        Free Delivery <span class="dk-acc">✦</span>
+        
         Easy Returns <span class="dk-acc">✦</span>
         দাম কতো? <span class="dk-acc">✦</span>
         Made in Chittagong <span class="dk-acc">✦</span>
@@ -60,7 +145,7 @@ get_header();
         New Arrivals <span class="dk-acc">✦</span>
         Handcrafted with Love <span class="dk-acc">✦</span>
         bKash Payment <span class="dk-acc">✦</span>
-        Free Delivery <span class="dk-acc">✦</span>
+        
         Easy Returns <span class="dk-acc">✦</span>
         দাম কতো? <span class="dk-acc">✦</span>
         Made in Chittagong <span class="dk-acc">✦</span>
@@ -82,7 +167,7 @@ get_header();
         $categories = get_terms(array(
             'taxonomy'   => 'product_cat',
             'hide_empty' => false,
-            'number'     => 3,
+            'number'     => 6,
             'exclude'    => array(get_option('default_product_cat')),
         ));
         $cat_classes = array('dk-cat-bg-1', 'dk-cat-bg-2', 'dk-cat-bg-3');
@@ -129,37 +214,45 @@ get_header();
                 $is_on_sale = $product->is_on_sale();
                 $img_url    = get_the_post_thumbnail_url($product->get_id(), 'woocommerce_single');
         ?>
-        <div class="dk-product-card">
-            <div class="dk-product-img">
-                <?php if ($is_on_sale) : ?>
-                    <span class="dk-p-badge dk-badge-sale">Sale</span>
-                <?php else : ?>
-                    <span class="dk-p-badge dk-badge-new">New</span>
-                <?php endif; ?>
-                <?php if ($img_url) : ?>
-                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($product->get_name()); ?>" />
-                <?php endif; ?>
-            </div>
-            <div class="dk-product-info">
-                <div class="dk-product-name"><?php echo esc_html($product->get_name()); ?></div>
-                <div class="dk-price-row">
-                    <span class="dk-product-price"><?php echo $product->get_price_html(); ?></span>
-                </div>
-                <div class="dk-size-row">
-                    <?php
-                    if ($product->is_type('variable')) {
-                        $attributes = $product->get_variation_attributes();
-                        if (isset($attributes['attribute_pa_size'])) {
-                            foreach ($attributes['attribute_pa_size'] as $size) {
-                                echo '<span class="dk-size-tag">' . strtoupper(esc_html($size)) . '</span>';
-                            }
-                        }
-                    }
-                    ?>
-                </div>
-                <a href="<?php echo esc_url($product->get_permalink()); ?>" class="dk-btn-primary" style="margin-top:12px;display:inline-block;font-size:10px;padding:10px 20px;">View Product</a>
-            </div>
+        <a href="<?php echo esc_url($product->get_permalink()); ?>" class="dk-product-card">
+    <div class="dk-product-img">
+        <?php if ($is_on_sale) : ?>
+            <span class="dk-p-badge dk-badge-sale">Sale</span>
+        <?php else : ?>
+            <span class="dk-p-badge dk-badge-new">New</span>
+        <?php endif; ?>
+        <?php if ($img_url) : ?>
+            <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($product->get_name()); ?>" loading="lazy" />
+        <?php endif; ?>
+        <!-- Hover overlay — desktop only -->
+        <div class="dk-product-hover-overlay">
+            <span class="dk-hover-btn">View Product</span>
         </div>
+    </div>
+    <div class="dk-product-info">
+        <div class="dk-product-name"><?php echo esc_html($product->get_name()); ?></div>
+        <div class="dk-price-row">
+            <?php if ($is_on_sale) : ?>
+                <span class="dk-product-price">৳<?php echo number_format($product->get_sale_price(), 0); ?></span>
+                <span class="dk-product-price-old">৳<?php echo number_format($product->get_regular_price(), 0); ?></span>
+            <?php else : ?>
+                <span class="dk-product-price">৳<?php echo number_format($product->get_price(), 0); ?></span>
+            <?php endif; ?>
+        </div>
+        <?php
+        if ($product->is_type('variable')) {
+            $attributes = $product->get_variation_attributes();
+            if (isset($attributes['attribute_pa_size'])) {
+                echo '<div class="dk-size-row">';
+                foreach ($attributes['attribute_pa_size'] as $size) {
+                    echo '<span class="dk-size-tag">' . strtoupper(esc_html($size)) . '</span>';
+                }
+                echo '</div>';
+            }
+        }
+        ?>
+    </div>
+</a>
         <?php endforeach; else : ?>
         <p style="color:#444;font-family:'DM Sans',sans-serif;">No products yet. Add products in WooCommerce to see them here.</p>
         <?php endif; ?>
